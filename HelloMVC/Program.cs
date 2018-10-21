@@ -34,11 +34,18 @@ namespace HelloMVC
             // dbContext.Add(city);
             // dbContext.SaveChanges();
 
-            var uTarget = dbContext.City.SingleOrDefault(c => c.CityId == 1001);
-            if (uTarget != null)
+            // var uTarget = dbContext.City.SingleOrDefault(c => c.CityId == 1001);
+            // if (uTarget != null)
+            // {
+            //     uTarget.City1 = "Kirkland";
+            //     dbContext.Update(uTarget);
+            //     dbContext.SaveChanges();
+            // }
+
+            var dTarget = dbContext.City.SingleOrDefault(c => c.CityId == 1001);
+            if (dTarget != null)
             {
-                uTarget.City1 = "Kirkland";
-                dbContext.Update(uTarget);
+                dbContext.Remove(dTarget);
                 dbContext.SaveChanges();
             }
         }
