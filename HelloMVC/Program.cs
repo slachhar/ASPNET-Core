@@ -30,9 +30,17 @@ namespace HelloMVC
             //     }
             // }
 
-            var city = new City() { City1 = "Redmond", CountryId = 103 };
-            dbContext.Add(city);
-            dbContext.SaveChanges();
+            // var city = new City() { City1 = "Redmond", CountryId = 103 };
+            // dbContext.Add(city);
+            // dbContext.SaveChanges();
+
+            var uTarget = dbContext.City.SingleOrDefault(c => c.CityId == 1001);
+            if (uTarget != null)
+            {
+                uTarget.City1 = "Kirkland";
+                dbContext.Update(uTarget);
+                dbContext.SaveChanges();
+            }
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
